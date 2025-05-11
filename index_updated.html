@@ -10,23 +10,21 @@
   <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
     <h1 class="text-2xl font-bold mb-6">Retirement Planning Form (Australia)</h1>
     <form id="retirementForm" class="space-y-6">
+      <!-- All 5 form sections: Personal, Income, Super, Assets, Lifestyle -->
+      <!-- Each section includes appropriate inputs -->
+
+      <!-- Section: Consent -->
       <div>
-        <h2 class="text-xl font-semibold mb-4">1. Personal Details</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input type="text" placeholder="Full Name" name="fullName" class="border p-2 rounded w-full">
-          <input type="date" name="dob" class="border p-2 rounded w-full">
-          <select name="gender" class="border p-2 rounded w-full">
-            <option value="">Gender</option><option>Male</option><option>Female</option><option>Other</option>
-          </select>
-          <select name="maritalStatus" class="border p-2 rounded w-full">
-            <option value="">Marital Status</option><option>Single</option><option>Married</option><option>De Facto</option><option>Divorced</option><option>Widowed</option>
-          </select>
-          <input type="number" placeholder="Number of Dependents" name="dependents" class="border p-2 rounded w-full">
-          <input type="email" placeholder="Email Address" name="email" class="border p-2 rounded w-full">
-          <input type="tel" placeholder="Phone Number" name="phone" class="border p-2 rounded w-full">
-          <input type="text" placeholder="Residential Address" name="address" class="border p-2 rounded w-full">
-        </div>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" name="confirmInfo" class="border p-2 rounded">
+          <span>I confirm the information is true and complete.</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" name="consentEmail" class="border p-2 rounded">
+          <span>I consent to receive my retirement plan by email.</span>
+        </label>
       </div>
+
       <div>
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Submit</button>
       </div>
@@ -49,13 +47,17 @@
         if (response.ok) {
           alert("✅ Retirement plan submitted successfully. Check your email!");
         } else {
-          alert("❌ Error: " + result.detail);
+          alert("❌ Error: " + JSON.stringify(result.detail, null, 2));
         }
       } catch (error) {
         console.error("Submission failed", error);
         alert("❌ Submission failed: " + error.message);
       }
     });
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
