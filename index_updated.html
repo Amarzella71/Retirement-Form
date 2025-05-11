@@ -1,63 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retirement Planning Form (Australia)</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-  <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
-    <h1 class="text-2xl font-bold mb-6">Retirement Planning Form (Australia)</h1>
-    <form id="retirementForm" class="space-y-6">
-      <!-- All 5 form sections: Personal, Income, Super, Assets, Lifestyle -->
-      <!-- Each section includes appropriate inputs -->
+<script>
+  document.getElementById("retirementForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      <!-- Section: Consent -->
-      <div>
-        <label class="flex items-center space-x-2">
-          <input type="checkbox" name="confirmInfo" class="border p-2 rounded">
-          <span>I confirm the information is true and complete.</span>
-        </label>
-        <label class="flex items-center space-x-2">
-          <input type="checkbox" name="consentEmail" class="border p-2 rounded">
-          <span>I consent to receive my retirement plan by email.</span>
-        </label>
-      </div>
+    const formData = new FormData(this);
+    const formObj = {};
 
-      <div>
-        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Submit</button>
-      </div>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById("retirementForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const formData = new FormData(this);
-      const formObj = {};
-      formData.forEach((value, key) => formObj[key] = value);
-      try {
-        const response = await fetch("https://retirement-backend-api.onrender.com/submit-retirement-form", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formObj)
-        });
-        const result = await response.json();
-        if (response.ok) {
-          alert("✅ Retirement plan submitted successfully. Check your email!");
+    // Ensure all fields (even checkboxes) are included
+    for (const element of this.elements) {
+      if (element.name) {
+        if (element.type === "checkbox") {
+          formObj[element.name] = element.checked;
         } else {
-          alert("❌ Error: " + JSON.stringify(result.detail, null, 2));
+          formObj[element.name] = element.value;
         }
-      } catch (error) {
-        console.error("Submission failed", error);
-        alert("❌ Submission failed: " + error.message);
       }
-    });
-  </script>
-</body>
-</html>
+    }
 
-  </script>
-</body>
-</html>
+    try {
+      const response = await fetch("https://retirement-backend-api.onrender.com/submit-retirement-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formObj)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("✅ Retirement plan submitted successfully. Check your email!");
+      } else {
+        // Show readable validation errors
+        if (Array.isArray(result.detail)) {
+          const messages = result.detail.map(d => `• ${d.loc.join('.')}: ${d.msg}`).join('\\n');
+          alert("❌ Error:\\n" + messages);
+        } else {
+          alert("❌ Error: " + JSON.stringify(result.detail));
+        }
+      }
+    } catch (error) {
+      console.error("Submission failed", error);
+      alert("❌ Submission failed: " + error.message);
+    }
+  });
+</script>
