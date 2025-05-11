@@ -40,7 +40,7 @@
       const formObj = {};
       formData.forEach((value, key) => formObj[key] = value);
       try {
-        const response = await fetch("https://retirement-backend.onrender.com/submit-retirement-form", {
+        const response = await fetch("https://retirement-backend-api.onrender.com/submit-retirement-form", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formObj)
