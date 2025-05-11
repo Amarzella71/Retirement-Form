@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Planning Form (Australia)</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-10">
+    <h1 class="text-3xl font-bold mb-6">Retirement Planning Form (Australia)</h1>
+    <form id="retirementForm" class="space-y-8">
+      <!-- Section 1: Personal Details -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">1. Personal Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Full Name" name="fullName" class="border p-2 rounded w-full" required>
+          <input type="date" name="dob" class="border p-2 rounded w-full" required>
+          <select name="gender" class="border p-2 rounded w-full"><option value="">Gender</option><option>Male</option><option>Female</option><option>Other</option></select>
+          <select name="maritalStatus" class="border p-2 rounded w-full"><option value="">Marital Status</option><option>Single</option><option>Married</option><option>De Facto</option><option>Divorced</option><option>Widowed</option></select>
+          <input type="number" placeholder="Number of Dependents" name="dependents" class="border p-2 rounded w-full">
+          <input type="email" placeholder="Email Address" name="email" class="border p-2 rounded w-full" required>
+          <input type="tel" placeholder="Phone Number" name="phone" class="border p-2 rounded w-full">
+          <input type="text" placeholder="Residential Address" name="address" class="border p-2 rounded w-full">
+        </div>
+      </section>
+
+      <!-- Section 2: Employment & Income -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">2. Employment & Income</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <select name="employmentStatus" class="border p-2 rounded w-full"><option>Employment Status</option><option>Employed</option><option>Self-Employed</option><option>Retired</option><option>Other</option></select>
+          <input type="text" placeholder="Occupation" name="occupation" class="border p-2 rounded w-full">
+          <input type="text" placeholder="Employer Name" name="employer" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Gross Annual Income" name="grossIncome" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Net Annual Income" name="netIncome" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Expected Retirement Age" name="retirementAge" class="border p-2 rounded w-full" required>
+          <input type="number" placeholder="Desired Annual Retirement Income" name="desiredRetirementIncome" class="border p-2 rounded w-full">
+        </div>
+      </section>
+
+      <!-- Section 3: Superannuation -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">3. Superannuation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Super Fund Name" name="superFundName" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Super Balance" name="superBalance" class="border p-2 rounded w-full" required>
+          <input type="text" placeholder="Contribution Type" name="contributionType" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Annual Contributions" name="annualContributions" class="border p-2 rounded w-full" required>
+          <input type="text" placeholder="Investment Option" name="investmentOption" class="border p-2 rounded w-full">
+          <input type="text" placeholder="Fees" name="fees" class="border p-2 rounded w-full">
+          <select name="multipleSuper" class="border p-2 rounded w-full"><option>Do you have multiple super accounts?</option><option>Yes</option><option>No</option></select>
+        </div>
+      </section>
+
+      <!-- Section 4: Assets & Liabilities -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">4. Assets & Liabilities</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="number" placeholder="Primary Residence Value" name="primaryResidence" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Other Property" name="otherProperty" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Cash & Savings" name="cashSavings" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Shares" name="shares" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Managed Funds" name="managedFunds" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Business Interests" name="businessInterests" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Vehicles & Property" name="personalProperty" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Mortgage" name="mortgage" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Investment Property Loans" name="propertyLoans" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Personal Loans" name="personalLoans" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Credit Card Debt" name="creditDebt" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Other Debts" name="otherDebts" class="border p-2 rounded w-full">
+        </div>
+      </section>
+
+      <!-- Section 5: Lifestyle & Estate -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">5. Lifestyle & Estate</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Retirement Location" name="retirementLocation" class="border p-2 rounded w-full">
+          <input type="text" placeholder="Retirement Activities" name="retirementActivities" class="border p-2 rounded w-full">
+          <input type="number" placeholder="Living Expenses" name="livingExpenses" class="border p-2 rounded w-full">
+          <select name="downsizeProperty" class="border p-2 rounded w-full"><option>Downsize Property?</option><option>Yes</option><option>No</option><option>Maybe</option></select>
+          <select name="reverseMortgage" class="border p-2 rounded w-full"><option>Reverse Mortgage?</option><option>Yes</option><option>No</option><option>Maybe</option></select>
+          <select name="lifeInsurance" class="border p-2 rounded w-full"><option>Life Insurance?</option><option>Yes</option><option>No</option></select>
+          <select name="incomeProtection" class="border p-2 rounded w-full"><option>Income Protection?</option><option>Yes</option><option>No</option></select>
+          <select name="tpdInsurance" class="border p-2 rounded w-full"><option>TPD Insurance?</option><option>Yes</option><option>No</option></select>
+          <select name="hasWill" class="border p-2 rounded w-full"><option>Valid Will?</option><option>Yes</option><option>No</option></select>
+          <select name="powerOfAttorney" class="border p-2 rounded w-full"><option>Power of Attorney?</option><option>Yes</option><option>No</option></select>
+          <input type="number" placeholder="Expected Inheritance" name="inheritance" class="border p-2 rounded w-full">
+          <select name="dependentsSupport" class="border p-2 rounded w-full"><option>Support Dependents?</option><option>Yes</option><option>No</option></select>
+          <input type="text" placeholder="Health Concerns" name="healthConcerns" class="border p-2 rounded w-full">
+          <input type="text" placeholder="Other Goals" name="otherGoals" class="border p-2 rounded w-full">
+        </div>
+      </section>
+
+      <!-- Consent & Submit -->
+      <section>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" name="confirmInfo" class="border p-2 rounded">
+          <span>I confirm the information is true and complete.</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" name="consentEmail" class="border p-2 rounded">
+          <span>I consent to receive my retirement plan by email.</span>
+        </label>
+        <div>
+          <button type="submit" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Submit</button>
+        </div>
+      </section>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("retirementForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const formObj = {};
+      for (const element of this.elements) {
+        if (element.name) {
+          formObj[element.name] = element.type === "checkbox" ? element.checked : element.value;
+        }
+      }
+      try {
+        const response = await fetch("https://retirement-backend-api.onrender.com/submit-retirement-form", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formObj)
+        });
+        const result = await response.json();
+        if (response.ok) {
+          alert("✅ Retirement plan submitted successfully. Check your email!");
+        } else {
+          if (Array.isArray(result.detail)) {
+            const messages = result.detail.map(d => `• ${d.loc.join('.')}: ${d.msg}`).join('\n');
+            alert("❌ Validation error:\n" + messages);
+          } else {
+            alert("❌ Error: " + JSON.stringify(result.detail));
+          }
+        }
+      } catch (error) {
+        alert("❌ Submission failed: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>
